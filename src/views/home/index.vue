@@ -6,6 +6,7 @@
   </div>
   <div>
     <button @click="clickBus">vue线程</button>
+    <button @click="jump">跳转</button>
   </div>
   <hello-world></hello-world>
 </div>
@@ -39,6 +40,11 @@ export default {
     ...mapMutations('app', ['setName']),
     clickBus() {
       this.bus.$emit('changeIncidet', '调用线程事件');
+    },
+    jump() {
+      this.$router.push({
+        name: 'About'
+      });
     }
   },
   mounted() {
@@ -49,6 +55,9 @@ export default {
     SourceMirror.login(params).then(res => {
       if (res.data.code == 200 && res.data.data) {}
     });
+  },
+  destroyed() {
+    this.bus.$off('changeIncidet');
   }
 };
 </script>

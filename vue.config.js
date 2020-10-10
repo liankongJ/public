@@ -5,7 +5,6 @@ function resolve(dir) {
 }
 
 module.exports = {
-  // lintOnSave: false
   publicPath: process.env.NODE_ENV === 'production'
     ? '/production-sub-path/'
     : '/',
@@ -38,6 +37,7 @@ module.exports = {
     //设置alias
     config.resolve.alias.set("@", resolve("src"));
   },
+  lintOnSave: false,
   devServer: {
     port: 9090,
     // 前端代理解决跨域
