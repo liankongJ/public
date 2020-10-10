@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { userUrl } from './axiosUrl';
 
 const resources = {
   SourceMirror: axios.create({
+    baseURL: userUrl
   })
 }
 

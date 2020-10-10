@@ -9,7 +9,7 @@ export default {
   //     }
   //   })
   login: params =>
-    SourceMirror.post('user/login', {
+    SourceMirror.post('/login', {
       ...params
     })
 }
